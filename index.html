@@ -1,2 +1,1376 @@
-# Ronjita-Life
-Ronjita Life - My Personal Study, Skills and Growth Dashboard
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ronjita Life 🌱</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f8f6;
+    color:#17352a;
+    line-height:1.6;
+    padding-bottom:60px;
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(135deg,#075c38,#159565);
+    color:white;
+    padding:30px 18px 35px;
+    border-radius:0 0 30px 30px;
+}
+
+.container{
+    width:92%;
+    max-width:900px;
+    margin:auto;
+}
+
+.header h1{
+    font-size:31px;
+    margin-bottom:5px;
+}
+
+.header p{
+    opacity:.9;
+}
+
+/* CARDS */
+
+.card{
+    background:white;
+    margin-top:17px;
+    padding:21px;
+    border-radius:21px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.card h2{
+    margin-bottom:14px;
+    font-size:20px;
+}
+
+/* ISLAMIC REMINDER */
+
+.islamic{
+    background:linear-gradient(135deg,#edf9f2,#ffffff);
+    border-left:5px solid #0b8253;
+}
+
+.islamic .ayah{
+    font-size:18px;
+    font-weight:bold;
+    color:#075c38;
+    margin:10px 0;
+}
+
+/* MOTIVATION */
+
+.motivation{
+    text-align:center;
+    background:linear-gradient(135deg,#075c38,#13865b);
+    color:white;
+}
+
+.motivation h2{
+    color:white;
+}
+
+.motivation p{
+    margin:10px 0;
+}
+
+.big-line{
+    font-size:21px;
+    font-weight:bold;
+    margin:18px 0;
+}
+
+/* STATISTICS */
+
+.stat-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.stat{
+    background:#f0f7f3;
+    padding:16px;
+    border-radius:16px;
+}
+
+.stat strong{
+    display:block;
+    font-size:23px;
+    margin-top:5px;
+}
+
+/* TASKS */
+
+.task{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 0;
+    border-bottom:1px solid #edf1ef;
+}
+
+.task:last-child{
+    border-bottom:none;
+}
+
+.task input{
+    width:20px;
+    height:20px;
+}
+
+/* PROGRESS */
+
+.progress-box{
+    margin-top:14px;
+}
+
+.progress{
+    height:12px;
+    background:#e4eee9;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#0b8253;
+    transition:.3s;
+}
+
+/* BUTTONS */
+
+button{
+    border:none;
+    padding:11px 17px;
+    border-radius:12px;
+    background:#0b8253;
+    color:white;
+    cursor:pointer;
+    margin:4px;
+    font-size:14px;
+}
+
+button.secondary{
+    background:#e7f1ec;
+    color:#13583e;
+}
+
+button.danger{
+    background:#c94b4b;
+}
+
+/* TIMER */
+
+.timer{
+    text-align:center;
+}
+
+.timer-display{
+    font-size:45px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+/* CALENDAR */
+
+.calendar-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.calendar{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:5px;
+}
+
+.day-name{
+    text-align:center;
+    font-size:12px;
+    font-weight:bold;
+    padding:7px 0;
+    color:#668276;
+}
+
+.day{
+    min-height:60px;
+    background:#f5f8f6;
+    border-radius:10px;
+    padding:6px;
+    font-size:12px;
+    cursor:pointer;
+    border:1px solid transparent;
+}
+
+.day:hover{
+    border-color:#0b8253;
+}
+
+.day.today{
+    border:2px solid #0b8253;
+}
+
+.day.done{
+    background:#dff4e8;
+}
+
+.day .mini{
+    font-size:10px;
+    margin-top:5px;
+    color:#39735a;
+}
+
+/* SUMMARY */
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.summary div{
+    background:#f1f7f4;
+    padding:12px;
+    border-radius:12px;
+    text-align:center;
+}
+
+/* NOTES */
+
+textarea{
+    width:100%;
+    min-height:130px;
+    border:1px solid #d8e4de;
+    border-radius:14px;
+    padding:12px;
+    resize:vertical;
+    font-family:inherit;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:40px 15px;
+    color:#688076;
+    font-size:13px;
+}
+
+.footer .goodluck{
+    font-size:20px;
+    font-weight:bold;
+    color:#075c38;
+    margin-top:15px;
+}
+
+/* MODAL */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:100;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-box{
+    background:white;
+    width:100%;
+    max-width:420px;
+    padding:22px;
+    border-radius:22px;
+}
+
+.close{
+    float:right;
+    background:#eee;
+    color:#333;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .header h1{
+        font-size:27px;
+    }
+
+    .summary{
+        grid-template-columns:1fr;
+    }
+
+    .timer-display{
+        font-size:38px;
+    }
+
+    .day{
+        min-height:53px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="container">
+
+<h1>Ronjita Life 🌱</h1>
+
+<p>My Study • Skills • English • Work • Growth</p>
+
+<br>
+
+<p id="todayText"></p>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- ISLAMIC REMINDER -->
+
+<section class="card islamic">
+
+<h2>🌙 আজকের স্মরণ</h2>
+
+<p class="ayah">
+“আর মানুষ তাই পায়, যার জন্য সে চেষ্টা করে।”
+</p>
+
+<p>
+— সূরা আন-নাজম, ৫৩:৩৯
+</p>
+
+<p>
+🤍 পরিশ্রম কখনো বৃথা যায় না।
+আজ যতটুকু পারি, ততটুকুই করব।
+ধীরে হলেও এগিয়ে যাব।
+</p>
+
+<p>
+আল্লাহর ওপর ভরসা রাখব,
+নিজের সর্বোচ্চ চেষ্টা করব—
+<strong>ইনশাআল্লাহ, একদিন ফল আসবেই।</strong>
+</p>
+
+</section>
+
+
+<!-- TARGET -->
+
+<section class="card">
+
+<h2>🎯 My Target</h2>
+
+<p>
+আমি অন্য কারও সঙ্গে প্রতিযোগিতা করতে আসিনি।
+আমি শুধু গতকালের আমার চেয়ে আজকের আমাকে একটু ভালো করতে চাই।
+</p>
+
+<br>
+
+<p>📚 পড়াশোনা করব।</p>
+<p>💻 নতুন Skill শিখব।</p>
+<p>🇬🇧 English শিখব।</p>
+<p>💼 নিজের কাজের যোগ্যতা তৈরি করব।</p>
+<p>🌱 প্রতিদিন নিজেকে একটু একটু করে উন্নত করব।</p>
+
+<br>
+
+<p>
+<strong>
+আজকের ছোট ছোট কাজই একদিন আমার বড় পরিবর্তনের কারণ হবে।
+</strong>
+</p>
+
+</section>
+
+
+<!-- TODAY OVERVIEW -->
+
+<section class="card">
+
+<h2>🌱 Today's Overview</h2>
+
+<div class="stat-grid">
+
+<div class="stat">
+📚 HSC Study
+<strong id="studyTime">0h 0m</strong>
+<small>Target: 4 hours</small>
+</div>
+
+<div class="stat">
+💻 Skill Learning
+<strong id="skillTime">0h 0m</strong>
+<small>Target: 2 hours</small>
+</div>
+
+<div class="stat">
+🇬🇧 English
+<strong id="englishTime">0h 0m</strong>
+<small>Target: 1 hour</small>
+</div>
+
+<div class="stat">
+📊 Tasks
+<strong id="taskCount">0 / 5</strong>
+<small>Completed today</small>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TASKS -->
+
+<section class="card">
+
+<h2>🎯 Today's Tasks</h2>
+
+<label class="task">
+<input type="checkbox" class="taskCheck">
+📚 HSC Study — 4 Hours
+</label>
+
+<label class="task">
+<input type="checkbox" class="taskCheck">
+🇬🇧 English Practice
+</label>
+
+<label class="task">
+<input type="checkbox" class="taskCheck">
+💻 Skill Learning
+</label>
+
+<label class="task">
+<input type="checkbox" class="taskCheck">
+💼 Portfolio / Work Practice
+</label>
+
+<label class="task">
+<input type="checkbox" class="taskCheck">
+🔄 Revision
+</label>
+
+</section>
+
+
+<!-- STUDY -->
+
+<section class="card">
+
+<h2>📚 HSC Study Progress</h2>
+
+<p>
+<span id="studyPercent">0</span>%
+of today's 4-hour target
+</p>
+
+<div class="progress-box">
+
+<div class="progress">
+
+<div class="progress-bar" id="studyBar"></div>
+
+</div>
+
+</div>
+
+<br>
+
+<button onclick="addStudy(30)">
++ 30 min
+</button>
+
+<button onclick="addStudy(60)">
++ 1 hour
+</button>
+
+<button class="secondary" onclick="resetStudy()">
+Reset Today
+</button>
+
+</section>
+
+
+<!-- TIMER -->
+
+<section class="card timer">
+
+<h2>⏱️ Focus Timer</h2>
+
+<div class="timer-display" id="timerDisplay">
+25:00
+</div>
+
+<button onclick="startTimer()">Start</button>
+
+<button class="secondary" onclick="pauseTimer()">
+Pause
+</button>
+
+<button class="danger" onclick="resetTimer()">
+Reset
+</button>
+
+</section>
+
+
+<!-- CALENDAR -->
+
+<section class="card">
+
+<div class="calendar-head">
+
+<button class="secondary" onclick="changeMonth(-1)">
+←
+</button>
+
+<h2 id="calendarTitle"></h2>
+
+<button class="secondary" onclick="changeMonth(1)">
+→
+</button>
+
+</div>
+
+<div class="calendar" id="calendar"></div>
+
+<div class="summary">
+
+<div>
+📚
+<br>
+<strong id="monthStudy">0h</strong>
+<small>This Month</small>
+</div>
+
+<div>
+🎯
+<br>
+<strong id="monthTasks">0</strong>
+<small>Tasks</small>
+</div>
+
+<div>
+🔥
+<br>
+<strong id="streak">0</strong>
+<small>Streak</small>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- YEARLY -->
+
+<section class="card">
+
+<h2>🗓️ Yearly Progress</h2>
+
+<p>
+এই বছর তোমার মোট Study Time:
+</p>
+
+<h1 id="yearStudy">0h</h1>
+
+<br>
+
+<div class="progress">
+
+<div class="progress-bar" id="yearBar"></div>
+
+</div>
+
+<br>
+
+<p id="yearMessage">
+Keep going 🌱
+</p>
+
+</section>
+
+
+<!-- NOTES -->
+
+<section class="card">
+
+<h2>📝 My Personal Notes</h2>
+
+<textarea
+id="notes"
+placeholder="আজকের চিন্তা, পরিকল্পনা, শেখা বিষয় বা গুরুত্বপূর্ণ কিছু এখানে লিখো..."
+></textarea>
+
+<br>
+
+<button onclick="saveNotes()">
+Save Notes
+</button>
+
+</section>
+
+
+<!-- LIFE PROMISE -->
+
+<section class="card motivation">
+
+<h2>🌱 My Promise to Myself</h2>
+
+<p>
+কোন জায়গায় আছি—
+তা আমার ভবিষ্যৎ ঠিক করবে না।
+</p>
+
+<p>
+কোন কলেজে পড়ছি—
+তা আমার স্বপ্নের সীমা ঠিক করবে না।
+</p>
+
+<p>
+কোন স্কুল থেকে এসেছি—
+তা আমার সামর্থ্য নির্ধারণ করবে না।
+</p>
+
+<div class="big-line">
+
+আমি নিজে পড়ব।<br>
+নিজে শিখব।<br>
+নিজেকে তৈরি করব।
+
+</div>
+
+<p>
+ভুল হলে আবার শুরু করব।
+ধীরে এগোলেও থেমে যাব না।
+</p>
+
+<p>
+<strong>
+আমার অবস্থান নয়,
+আমার চেষ্টা আমাকে একদিন প্রমাণ করবে।
+</strong>
+</p>
+
+<br>
+
+<p>
+আল্লাহ আমাকে সঠিক পথে রাখুন,
+আমার পরিশ্রমে বরকত দিন।
+</p>
+
+<div class="big-line">
+🤲 ইনশাআল্লাহ,
+আমি একদিন নিজেকেই প্রমাণ করে দেখাব।
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<p>
+Created by <strong>Mst. Ronjita Akter Runa</strong>
+</p>
+
+<p>
+Father: Robiul Islam
+</p>
+
+<p>
+Mother: Laky
+</p>
+
+<p class="goodluck">
+🌱 Good Luck, Ronjita
+</p>
+
+<p>
+Keep going • Keep learning • Keep faith
+</p>
+
+</footer>
+
+
+<!-- DAY POPUP -->
+
+<div class="modal" id="dayModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal()">
+✕
+</button>
+
+<h2 id="selectedDate"></h2>
+
+<br>
+
+<p>
+📚 Study:
+<strong id="selectedStudy"></strong>
+</p>
+
+<p>
+🎯 Tasks Completed:
+<strong id="selectedTasks"></strong>
+</p>
+
+<br>
+
+<p>
+এই দিনের progress তোমার browser-এ save করা হয়েছে।
+</p>
+
+<br>
+
+<button onclick="closeModal()">
+Close
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* STORAGE */
+
+const STORAGE_KEY = "ronjitaLifeData";
+
+let data =
+JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+
+days:{},
+
+notes:""
+
+};
+
+
+/* DATE */
+
+function dateKey(date){
+
+return date.getFullYear()+"-"+
+String(date.getMonth()+1).padStart(2,"0")+"-"+
+String(date.getDate()).padStart(2,"0");
+
+}
+
+
+function getTodayKey(){
+
+return dateKey(new Date());
+
+}
+
+
+function getDayData(key){
+
+if(!data.days[key]){
+
+data.days[key]={
+
+study:0,
+skill:0,
+english:0,
+tasks:0
+
+};
+
+}
+
+return data.days[key];
+
+}
+
+
+function saveData(){
+
+localStorage.setItem(
+STORAGE_KEY,
+JSON.stringify(data)
+);
+
+}
+
+
+/* FORMAT */
+
+function formatMinutes(minutes){
+
+const hours=Math.floor(minutes/60);
+
+const mins=minutes%60;
+
+return hours+"h "+mins+"m";
+
+}
+
+
+/* TODAY */
+
+function loadToday(){
+
+const key=getTodayKey();
+
+const day=getDayData(key);
+
+document.getElementById("studyTime").innerText=
+formatMinutes(day.study);
+
+document.getElementById("skillTime").innerText=
+formatMinutes(day.skill);
+
+document.getElementById("englishTime").innerText=
+formatMinutes(day.english);
+
+const percent=Math.min(
+100,
+Math.round((day.study/240)*100)
+);
+
+document.getElementById("studyPercent").innerText=
+percent;
+
+document.getElementById("studyBar").style.width=
+percent+"%";
+
+document.getElementById("taskCount").innerText=
+day.tasks+" / 5";
+
+}
+
+
+/* STUDY */
+
+function addStudy(minutes){
+
+const key=getTodayKey();
+
+const day=getDayData(key);
+
+day.study+=minutes;
+
+saveData();
+
+loadToday();
+renderCalendar();
+updateYear();
+
+}
+
+
+function resetStudy(){
+
+const key=getTodayKey();
+
+getDayData(key).study=0;
+
+saveData();
+
+loadToday();
+renderCalendar();
+updateYear();
+
+}
+
+
+/* TASKS */
+
+function loadTasks(){
+
+const checks=
+document.querySelectorAll(".taskCheck");
+
+const day=
+getDayData(getTodayKey());
+
+checks.forEach((check,index)=>{
+
+check.checked=index<day.tasks;
+
+});
+
+}
+
+
+document.querySelectorAll(".taskCheck").forEach(check=>{
+
+check.addEventListener("change",()=>{
+
+const checks=
+document.querySelectorAll(".taskCheck");
+
+const completed=
+[...checks].filter(c=>c.checked).length;
+
+getDayData(getTodayKey()).tasks=
+completed;
+
+saveData();
+
+loadToday();
+renderCalendar();
+
+});
+
+});
+
+
+/* TIMER */
+
+let timerSeconds=25*60;
+
+let timerInterval=null;
+
+
+function updateTimer(){
+
+const minutes=
+Math.floor(timerSeconds/60);
+
+const seconds=
+timerSeconds%60;
+
+document.getElementById("timerDisplay").innerText=
+
+String(minutes).padStart(2,"0")+
+":"+
+String(seconds).padStart(2,"0");
+
+}
+
+
+function startTimer(){
+
+if(timerInterval)return;
+
+timerInterval=setInterval(()=>{
+
+if(timerSeconds<=0){
+
+clearInterval(timerInterval);
+
+timerInterval=null;
+
+alert("🎉 Focus session completed!");
+
+return;
+
+}
+
+timerSeconds--;
+
+updateTimer();
+
+},1000);
+
+}
+
+
+function pauseTimer(){
+
+clearInterval(timerInterval);
+
+timerInterval=null;
+
+}
+
+
+function resetTimer(){
+
+pauseTimer();
+
+timerSeconds=25*60;
+
+updateTimer();
+
+}
+
+
+/* CALENDAR */
+
+let currentDate=new Date();
+
+
+function changeMonth(change){
+
+currentDate.setMonth(
+currentDate.getMonth()+change
+);
+
+renderCalendar();
+
+}
+
+
+function renderCalendar(){
+
+const calendar=
+document.getElementById("calendar");
+
+calendar.innerHTML="";
+
+const year=
+currentDate.getFullYear();
+
+const month=
+currentDate.getMonth();
+
+const monthName=
+currentDate.toLocaleString(
+"en-US",
+{month:"long"}
+);
+
+document.getElementById("calendarTitle").innerText=
+monthName+" "+year;
+
+
+const names=[
+"Sun",
+"Mon",
+"Tue",
+"Wed",
+"Thu",
+"Fri",
+"Sat"
+];
+
+
+names.forEach(name=>{
+
+const div=
+document.createElement("div");
+
+div.className="day-name";
+
+div.innerText=name;
+
+calendar.appendChild(div);
+
+});
+
+
+const firstDay=
+new Date(year,month,1).getDay();
+
+const totalDays=
+new Date(year,month+1,0).getDate();
+
+
+for(let i=0;i<firstDay;i++){
+
+calendar.appendChild(
+document.createElement("div")
+);
+
+}
+
+
+for(let dayNumber=1;
+dayNumber<=totalDays;
+dayNumber++){
+
+const date=
+new Date(year,month,dayNumber);
+
+const key=dateKey(date);
+
+const day=getDayData(key);
+
+const div=
+document.createElement("div");
+
+div.className="day";
+
+
+if(key===getTodayKey()){
+
+div.classList.add("today");
+
+}
+
+
+if(day.study>0 || day.tasks>0){
+
+div.classList.add("done");
+
+}
+
+
+div.innerHTML=
+"<strong>"+dayNumber+
+"</strong>"+
+"<div class='mini'>"+
+(day.study>0?
+formatMinutes(day.study):"")+
+"</div>";
+
+
+div.onclick=()=>{
+
+showDay(key);
+
+};
+
+
+calendar.appendChild(div);
+
+}
+
+
+updateMonthSummary(year,month);
+
+updateStreak();
+
+}
+
+
+/* DAY DETAILS */
+
+function showDay(key){
+
+const day=
+getDayData(key);
+
+document.getElementById("selectedDate").innerText=
+key;
+
+document.getElementById("selectedStudy").innerText=
+formatMinutes(day.study);
+
+document.getElementById("selectedTasks").innerText=
+day.tasks+" / 5";
+
+document.getElementById("dayModal").style.display=
+"flex";
+
+}
+
+
+function closeModal(){
+
+document.getElementById("dayModal").style.display=
+"none";
+
+}
+
+
+/* MONTH */
+
+function updateMonthSummary(year,month){
+
+let study=0;
+
+let tasks=0;
+
+
+Object.keys(data.days).forEach(key=>{
+
+const date=new Date(key);
+
+if(
+date.getFullYear()===year &&
+date.getMonth()===month
+){
+
+study+=data.days[key].study;
+
+tasks+=data.days[key].tasks;
+
+}
+
+});
+
+
+document.getElementById("monthStudy").innerText=
+formatMinutes(study);
+
+document.getElementById("monthTasks").innerText=
+tasks;
+
+}
+
+
+/* YEAR */
+
+function updateYear(){
+
+const year=new Date().getFullYear();
+
+let total=0;
+
+
+Object.keys(data.days).forEach(key=>{
+
+const date=new Date(key);
+
+if(date.getFullYear()===year){
+
+total+=data.days[key].study;
+
+}
+
+});
+
+
+document.getElementById("yearStudy").innerText=
+formatMinutes(total);
+
+
+const target=4*60*365;
+
+const percent=Math.min(
+100,
+Math.round((total/target)*100)
+);
+
+
+document.getElementById("yearBar").style.width=
+percent+"%";
+
+
+document.getElementById("yearMessage").innerText=
+percent>=100?
+"🎉 Amazing! You reached your yearly target!":
+"Keep going 🌱";
+
+}
+
+
+/* STREAK */
+
+function updateStreak(){
+
+let streak=0;
+
+let date=new Date();
+
+
+while(true){
+
+const key=dateKey(date);
+
+const day=data.days[key];
+
+
+if(
+day &&
+(day.study>0 || day.tasks>0)
+){
+
+streak++;
+
+date.setDate(
+date.getDate()-1
+);
+
+}else{
+
+break;
+
+}
+
+}
+
+
+document.getElementById("streak").innerText=
+streak;
+
+}
+
+
+/* NOTES */
+
+function saveNotes(){
+
+data.notes=
+document.getElementById("notes").value;
+
+saveData();
+
+alert("✅ Notes saved!");
+
+}
+
+
+/* INITIAL */
+
+document.getElementById("todayText").innerText=
+new Date().toLocaleDateString(
+"en-US",
+{
+weekday:"long",
+year:"numeric",
+month:"long",
+day:"numeric"
+}
+);
+
+
+document.getElementById("notes").value=
+data.notes || "";
+
+
+loadToday();
+
+loadTasks();
+
+renderCalendar();
+
+updateYear();
+
+updateTimer();
+
+</script>
+
+</body>
+  </html>
