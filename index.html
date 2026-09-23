@@ -8,7 +8,6 @@
 
 <style>
 :root {
-    --bg-color: #f3f0ff;
     --primary-grad: linear-gradient(135deg, #6366f1, #a855f7);
     --card-bg: #ffffff;
     --text-color: #2d3748;
@@ -37,8 +36,8 @@ body{
     text-align: center;
 }
 
-.header h1{ font-size: 32px; font-weight: 700; }
-.header p{ opacity: .95; font-size: 15px; }
+.header h1{ font-size: 30px; font-weight: 700; }
+.header p{ opacity: .95; font-size: 14px; }
 
 .date-badge{
     display: inline-block;
@@ -54,94 +53,161 @@ body{
 .card{
     background: var(--card-bg);
     margin-top: 22px;
-    padding: 24px;
+    padding: 22px;
     border-radius: 24px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.04);
 }
 
-.card h2{ margin-bottom: 16px; font-size: 21px; display: flex; align-items: center; gap: 8px; }
+.card h2{ margin-bottom: 14px; font-size: 20px; display: flex; align-items: center; gap: 8px; }
+
+/* ISLAMIC REMINDER & MOTIVATION */
+.islamic{
+    background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+    border-left: 6px solid #10b981;
+}
+
+.islamic .ayah{ font-size: 18px; font-weight: 700; color: #047857; margin: 8px 0; }
+
+.target-box {
+    background: #fdf2f8;
+    border-left: 6px solid #ec4899;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
 
 /* STATS OVERVIEW */
 .stat-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-.stat{ padding: 18px; border-radius: 20px; color: white; }
+.stat{ padding: 16px; border-radius: 20px; color: white; }
 .stat.study-bg { background: linear-gradient(135deg, #6366f1, #4f46e5); }
 .stat.skill-bg { background: linear-gradient(135deg, #10b981, #059669); }
 .stat.english-bg { background: linear-gradient(135deg, #f59e0b, #d97706); }
 .stat.task-bg { background: linear-gradient(135deg, #ec4899, #db2777); }
-.stat span { font-size: 14px; opacity: 0.9; }
-.stat strong{ display: block; font-size: 25px; margin-top: 4px; }
+.stat span { font-size: 13px; opacity: 0.9; }
+.stat strong{ display: block; font-size: 22px; margin-top: 2px; }
+.stat small{ font-size: 11px; opacity: 0.85; }
 
-/* INPUT & BUTTONS */
-input[type="text"], textarea, select{
+/* TASKS */
+.task{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    background: #f8fafc;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.task input{ width: 20px; height: 20px; accent-color: #8b5cf6; cursor: pointer; }
+
+/* TIMER */
+.timer-card {
+    background: linear-gradient(135deg, #fff5f5, #fff0f6);
+    border: 2px solid #fecdd3;
+    text-align: center;
+}
+
+.mode-selector {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.mode-btn {
+    background: #ffe4e6;
+    color: #e11d48;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.mode-btn.active { background: #e11d48; color: white; }
+
+.timer-display{
+    font-size: 50px;
+    font-weight: 700;
+    color: #be123c;
+    margin: 8px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* BUTTONS */
+button.action-btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background: #8b5cf6;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 4px;
+    transition: 0.2s;
+}
+
+button.secondary{ background: #e2e8f0; color: #475569; }
+
+/* CALENDAR */
+.calendar-head{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.calendar{ display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.day-name{ text-align: center; font-size: 12px; font-weight: 700; color: #8b5cf6; }
+.day{
+    min-height: 50px;
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+.day.today{ border: 2px solid #8b5cf6; background: #f3f0ff; font-weight: bold; }
+.day .mini{ font-size: 9px; color: #4338ca; font-weight: 600; margin-top: 2px; }
+
+/* INPUT & FILES */
+input[type="text"], textarea{
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     border: 2px solid #e2e8f0;
     border-radius: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     outline: none;
     font-family: inherit;
 }
 
-input[type="file"]{
-    margin-bottom: 12px;
-}
-
-button.action-btn {
-    border: none;
-    padding: 12px 24px;
-    border-radius: 14px;
-    background: #8b5cf6;
-    color: white;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    margin-top: 5px;
-    transition: 0.2s;
-}
-
-button.action-btn:hover { background: #7c3aed; }
-
-/* GALLERY & PDF LIST */
-.item-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.img-card {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #ddd;
-    background: #fafafa;
-    position: relative;
-}
-
-.img-card img {
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
-}
-
 .pdf-item {
     background: #f1f5f9;
-    padding: 12px;
-    border-radius: 12px;
+    padding: 10px;
+    border-radius: 10px;
     margin-top: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.pdf-item a {
-    color: #4f46e5;
-    text-decoration: none;
-    font-weight: bold;
-}
+.img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; margin-top: 10px; }
+.img-card { border-radius: 10px; overflow: hidden; border: 1px solid #ddd; position: relative; }
+.img-card img { width: 100%; height: 80px; object-fit: cover; }
 
-@media(max-width:600px){
-    .stat-grid{ grid-template-columns: 1fr; }
+/* MODAL */
+.modal{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
+.modal-box{ background: white; width: 100%; max-width: 420px; padding: 22px; border-radius: 20px; }
+
+@media(max-width:600px){ .stat-grid{ grid-template-columns: 1fr; } }
 </style>
 </head>
 
@@ -150,12 +216,33 @@ button.action-btn:hover { background: #7c3aed; }
 <header class="header">
     <div class="container">
         <h1>Ronjita Life 🌱</h1>
-        <p>Study • Skill • Notes & Resources Hub</p>
+        <p>My Study • Skills • English • Work • Growth</p>
         <div class="date-badge" id="todayText"></div>
     </div>
 </header>
 
 <main class="container">
+
+<!-- ISLAMIC REMINDER -->
+<section class="card islamic">
+    <h2>🌙 আজকের স্মরণ</h2>
+    <p class="ayah">“আর মানুষ তাই পায়, যার জন্য সে চেষ্টা করে।”</p>
+    <p style="font-size: 13px; color: #059669;">— সূরা আন-নাজম, ৫৩:৩৯</p>
+    <p style="margin-top: 8px; font-size: 14px;">পরিশ্রম কখনো বৃথা যায় না। আজ যতটুকু পারি, ততটুকুই করব। আল্লাহর উপর ভরসা রেখে নিজের সর্বোচ্চ চেষ্টা করব— ইনশাআল্লাহ!</p>
+</section>
+
+<!-- MY TARGET -->
+<section class="target-box">
+    <h3 style="color: #be185d;">🎯 My Target</h3>
+    <p style="font-size: 13px; margin-bottom: 8px;">আমি অন্য কারো সাথে প্রতিযোগিতা করতে আসিনি। আমি শুধু গতকালের আমার চেয়ে আজকের আমাকে একটু ভালো করতে চাই।</p>
+    <ul style="font-size: 13px; margin-left: 20px;">
+        <li>📚 পড়াশোনা করব।</li>
+        <li>💻 নতুন Skill শিখব।</li>
+        <li>🇬🇧 English শিখব।</li>
+        <li>💼 নিজের কাজের যোগ্যতা তৈরি করব।</li>
+        <li>🌱 প্রতিদিন নিজেকে একটু একটু করে উন্নত করব।</li>
+    </ul>
+</section>
 
 <!-- TODAY OVERVIEW -->
 <section class="card">
@@ -164,88 +251,302 @@ button.action-btn:hover { background: #7c3aed; }
         <div class="stat study-bg">
             <span>📚 HSC Study</span>
             <strong id="studyTime">0h 0m</strong>
+            <small>Target: 4 hours</small>
         </div>
         <div class="stat skill-bg">
             <span>💻 Skill Learning</span>
             <strong id="skillTime">0h 0m</strong>
+            <small>Target: 2 hours</small>
         </div>
         <div class="stat english-bg">
-            <span>🇬🇧 English</span>
+            <span>🇬🇧 English Practice</span>
             <strong id="englishTime">0h 0m</strong>
+            <small>Target: 1 hour</small>
         </div>
         <div class="stat task-bg">
-            <span>🎯 Tasks</span>
+            <span>🎯 Tasks Completed</span>
             <strong id="taskCount">0 / 5</strong>
+            <small>Completed today</small>
         </div>
     </div>
+</section>
+
+<!-- TODAY'S TASKS (CHECKBOX) -->
+<section class="card">
+    <h2>🎯 Today's Tasks (আজকের টাস্কসমূহ)</h2>
+    <label class="task"><input type="checkbox" class="taskCheck" onchange="updateTasks()"> 📚 HSC Study — 4 Hours</label>
+    <label class="task"><input type="checkbox" class="taskCheck" onchange="updateTasks()"> 🇬🇧 English Practice</label>
+    <label class="task"><input type="checkbox" class="taskCheck" onchange="updateTasks()"> 💻 Skill Learning</label>
+    <label class="task"><input type="checkbox" class="taskCheck" onchange="updateTasks()"> 💼 Portfolio / Work Practice</label>
+    <label class="task"><input type="checkbox" class="taskCheck" onchange="updateTasks()"> 🔄 Revision</label>
+</section>
+
+<!-- FOCUS TIMER WITH BACKGROUND SUPPORT -->
+<section class="card timer-card">
+    <h2>⏱️ Smart Focus Timer</h2>
+    <p style="font-size: 13px; color: #666; margin-bottom: 10px;">ব্রাউজার বা ফোন অফ রাখলেও টাইমার ব্যাকগ্রাউন্ডে টাইম গণনা করবে:</p>
+
+    <div class="mode-selector">
+        <button class="mode-btn active" onclick="setTimerCategory('study', this)">📚 HSC Study</button>
+        <button class="mode-btn" onclick="setTimerCategory('skill', this)">💻 Skill</button>
+        <button class="mode-btn" onclick="setTimerCategory('english', this)">🇬🇧 English</button>
+    </div>
+
+    <div class="timer-display" id="timerDisplay">25:00</div>
+
+    <div>
+        <button class="action-btn" style="background: #e11d48;" onclick="startTimer()">Start Focus</button>
+        <button class="action-btn secondary" onclick="pauseTimer()">Stop & Save Time</button>
+        <button class="action-btn secondary" onclick="resetTimer()">Reset</button>
+    </div>
+</section>
+
+<!-- MANUAL QUICK ADD TIME -->
+<section class="card">
+    <h2>⚡ Quick Time Add (ম্যানুয়ালি সময় যোগ করুন)</h2>
+    <button class="action-btn secondary" onclick="addTime('study', 30)">📚 +30 min Study</button>
+    <button class="action-btn secondary" onclick="addTime('study', 60)">📚 +1 hour Study</button>
+    <button class="action-btn secondary" onclick="addTime('skill', 30)">💻 +30 min Skill</button>
+    <button class="action-btn secondary" onclick="addTime('english', 30)">🇬🇧 +30 min English</button>
+</section>
+
+<!-- CALENDAR & PREVIOUS DAY HISTORY -->
+<section class="card">
+    <div class="calendar-head">
+        <button class="action-btn secondary" onclick="changeMonth(-1)">←</button>
+        <h2 id="calendarTitle"></h2>
+        <button class="action-btn secondary" onclick="changeMonth(1)">→</button>
+    </div>
+    <div class="calendar" id="calendar"></div>
 </section>
 
 <!-- CHAPTER WISE PDF MANAGER -->
 <section class="card">
     <h2>📂 অধ্যায়ভিত্তিক PDF জমা রাখুন</h2>
-    <p style="font-size: 13px; color: #666; margin-bottom: 12px;">বিষয় ও অধ্যায়ের নাম লিখে পিডিএফ ফাইল যুক্ত করুন:</p>
-    
     <input type="text" id="pdfSubject" placeholder="বিষয় ও অধ্যায়ের নাম (যেমন: Physics - Chapter 1)">
     <input type="file" id="pdfFile" accept="application/pdf">
     <button class="action-btn" onclick="savePDF()">PDF সেভ করুন</button>
-
-    <div id="pdfList" style="margin-top: 15px;"></div>
+    <div id="pdfList"></div>
 </section>
 
-<!-- IMAGE / PHOTO NOTES -->
+<!-- IMAGE NOTES -->
 <section class="card">
-    <h2>🖼️ পড়ালেখা বা ক্লাসনোটের ছবি জমা রাখুন</h2>
-    <p style="font-size: 13px; color: #666; margin-bottom: 12px;">গুরুত্বপূর্ণ নোট বা খাতার ছবি তুলে বা গ্যালারি থেকে যুক্ত করুন:</p>
-    
+    <h2>🖼️ পড়ালেখা বা ক্লাসনোটের ছবি</h2>
     <input type="text" id="imgTitle" placeholder="ছবি/নোটের শিরোনাম">
     <input type="file" id="imgFile" accept="image/*">
     <button class="action-btn" onclick="saveImage()">ছবি যুক্ত করুন</button>
-
-    <div class="item-grid" id="imageGallery"></div>
+    <div class="img-grid" id="imageGallery"></div>
 </section>
 
 <!-- DAILY WRITTEN NOTES -->
 <section class="card">
     <h2>📝 দৈনন্দিন লেখা নোট (Written Notes)</h2>
-    <textarea id="notes" style="min-height: 120px;" placeholder="আজকের দরকারি কোনো তথ্য বা বিস্তারিত নোট এখানে লিখে রাখুন..."></textarea>
+    <textarea id="notes" style="min-height: 100px;" placeholder="আজকের দরকারি কোনো তথ্য বা বিস্তারিত নোট এখানে লিখে রাখুন..."></textarea>
     <button class="action-btn" onclick="saveNoteText()">নোট সেভ করুন</button>
 </section>
 
 </main>
 
+<!-- HISTORY POPUP MODAL -->
+<div class="modal" id="dayModal">
+    <div class="modal-box">
+        <h3 id="selectedDate" style="color:#8b5cf6; margin-bottom: 10px;"></h3>
+        <p>📚 HSC Study: <strong id="selectedStudy"></strong></p>
+        <p>💻 Skill Learning: <strong id="selectedSkill"></strong></p>
+        <p>🇬🇧 English Practice: <strong id="selectedEnglish"></strong></p>
+        <p>🎯 Tasks Completed: <strong id="selectedTasks"></strong></p>
+        <hr style="margin: 10px 0;">
+        <p><strong>📝 ওই দিনের নোট:</strong></p>
+        <p id="selectedNote" style="background:#f1f5f9; padding:8px; border-radius:8px; font-size:13px; margin-top:5px; white-space:pre-wrap;"></p>
+        <br>
+        <button class="action-btn secondary" style="width: 100%;" onclick="closeModal()">Close Window</button>
+    </div>
+</div>
+
 <script>
-const STORAGE_KEY = "ronjitaLifeData_v3";
+const STORAGE_KEY = "ronjitaLifeData_v4";
 
 let data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
-    study: 0, skill: 0, english: 0, tasks: 0, textNote: "", pdfs: [], images: []
+    days: {}, pdfs: [], images: []
 };
 
+function dateKey(date){
+    return date.getFullYear()+"-"+
+    String(date.getMonth()+1).padStart(2,"0")+"-"+
+    String(date.getDate()).padStart(2,"0");
+}
+
+function getTodayKey(){ return dateKey(new Date()); }
+
+function getDayData(key){
+    if(!data.days[key]){
+        data.days[key] = { study:0, skill:0, english:0, tasks:0, notes:"", taskStates:[false,false,false,false,false] };
+    }
+    return data.days[key];
+}
+
 function saveData(){
-    try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    } catch(e) {
-        alert("মেমোরি ফুল হয়ে গেছে! বড় ফাইলের জন্য গুগল ড্রাইভ লিঙ্ক ব্যবহার করার পরামর্শ দেওয়া হচ্ছে।");
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function formatMinutes(minutes){
+    const hours = Math.floor(minutes/60);
+    const mins = minutes % 60;
+    return hours + "h " + mins + "m";
+}
+
+/* LOAD TODAY DATA */
+function loadToday(){
+    const day = getDayData(getTodayKey());
+    document.getElementById("studyTime").innerText = formatMinutes(day.study);
+    document.getElementById("skillTime").innerText = formatMinutes(day.skill);
+    document.getElementById("englishTime").innerText = formatMinutes(day.english);
+    document.getElementById("taskCount").innerText = day.tasks + " / 5";
+    document.getElementById("notes").value = day.notes || "";
+
+    const checks = document.querySelectorAll(".taskCheck");
+    checks.forEach((chk, idx) => {
+        chk.checked = day.taskStates ? day.taskStates[idx] : false;
+    });
+}
+
+function addTime(cat, mins){
+    const day = getDayData(getTodayKey());
+    day[cat] += mins;
+    saveData();
+    loadToday();
+    renderCalendar();
+}
+
+function updateTasks(){
+    const day = getDayData(getTodayKey());
+    const checks = document.querySelectorAll(".taskCheck");
+    let completed = 0;
+    day.taskStates = [];
+    checks.forEach((chk) => {
+        if(chk.checked) completed++;
+        day.taskStates.push(chk.checked);
+    });
+    day.tasks = completed;
+    saveData();
+    loadToday();
+    renderCalendar();
+}
+
+/* SMART TIMER (BACKGROUND TRACKING) */
+let currentCategory = 'study';
+let timerStartTime = null;
+let timerTargetMins = 25;
+
+function setTimerCategory(cat, btn){
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCategory = cat;
+}
+
+function startTimer(){
+    if(timerStartTime) return;
+    timerStartTime = Date.now();
+    localStorage.setItem("activeTimerStart", timerStartTime);
+    localStorage.setItem("activeTimerCategory", currentCategory);
+    alert("⏱️ টাইমার চালু হয়েছে! ব্রাউজার বন্ধ করলেও আপনার সময় ট্র্যাক হবে।");
+}
+
+function pauseTimer(){
+    const savedStart = localStorage.getItem("activeTimerStart");
+    if(!savedStart){
+        alert("কোনো টাইমার চালু নেই!");
+        return;
+    }
+    const elapsedMins = Math.floor((Date.now() - parseInt(savedStart)) / (1000 * 60));
+    if(elapsedMins > 0){
+        addTime(localStorage.getItem("activeTimerCategory") || 'study', elapsedMins);
+        alert(`🎉 অভিনন্দন! ${elapsedMins} মিনিট পড়া সম্পূর্ণ হয়ে আপনার তালিকায় সেভ হয়েছে!`);
+    } else {
+        alert("১ মিনিটের কম সময় রেকর্ড হয়নি।");
+    }
+    localStorage.removeItem("activeTimerStart");
+    timerStartTime = null;
+}
+
+function resetTimer(){
+    localStorage.removeItem("activeTimerStart");
+    timerStartTime = null;
+    alert("টাইমার রিসেট করা হয়েছে।");
+}
+
+/* CALENDAR & HISTORY */
+let currentDate = new Date();
+
+function changeMonth(change){
+    currentDate.setMonth(currentDate.getMonth() + change);
+    renderCalendar();
+}
+
+function renderCalendar(){
+    const calendar = document.getElementById("calendar");
+    calendar.innerHTML = "";
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    
+    document.getElementById("calendarTitle").innerText = 
+        currentDate.toLocaleString("bn-BD", {month:"long"}) + " " + year;
+
+    const names = ["রবি", "সোম", "মঙ্গল", "বুধ", "বৃহঃ", "শুক্র", "শনি"];
+    names.forEach(name=>{
+        const div = document.createElement("div");
+        div.className = "day-name";
+        div.innerText = name;
+        calendar.appendChild(div);
+    });
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const totalDays = new Date(year, month + 1, 0).getDate();
+
+    for(let i=0; i<firstDay; i++){
+        calendar.appendChild(document.createElement("div"));
+    }
+
+    for(let dayNumber=1; dayNumber<=totalDays; dayNumber++){
+        const date = new Date(year, month, dayNumber);
+        const key = dateKey(date);
+        const day = getDayData(key);
+        const div = document.createElement("div");
+        div.className = "day";
+
+        if(key === getTodayKey()) div.classList.add("today");
+
+        const totalMins = day.study + day.skill + day.english;
+        div.innerHTML = `<strong>${dayNumber}</strong><div class='mini'>${totalMins > 0 ? formatMinutes(totalMins) : ''}</div>`;
+        div.onclick = () => showDay(key);
+
+        calendar.appendChild(div);
     }
 }
 
-/* SAVE PDF */
+function showDay(key){
+    const day = getDayData(key);
+    document.getElementById("selectedDate").innerText = "তারিখ: " + key;
+    document.getElementById("selectedStudy").innerText = formatMinutes(day.study);
+    document.getElementById("selectedSkill").innerText = formatMinutes(day.skill);
+    document.getElementById("selectedEnglish").innerText = formatMinutes(day.english);
+    document.getElementById("selectedTasks").innerText = day.tasks + " / 5";
+    document.getElementById("selectedNote").innerText = day.notes || "এই দিনে কোনো তথ্য সেভ করা হয়নি।";
+    document.getElementById("dayModal").style.display = "flex";
+}
+
+function closeModal(){ document.getElementById("dayModal").style.display = "none"; }
+
+/* FILE MANAGEMENT */
 function savePDF(){
     const subject = document.getElementById("pdfSubject").value;
-    const fileInput = document.getElementById("pdfFile");
-    const file = fileInput.files[0];
-
-    if(!subject || !file){
-        alert("দয়া করে অধ্যায়ের নাম এবং পিডিএফ ফাইল নির্বাচন করুন।");
-        return;
-    }
+    const file = document.getElementById("pdfFile").files[0];
+    if(!subject || !file) return alert("বিষয় ও ফাইল বাছাই করুন");
 
     const reader = new FileReader();
     reader.onload = function(e){
         data.pdfs.push({ title: subject, fileData: e.target.result });
-        saveData();
-        renderPDFs();
-        document.getElementById("pdfSubject").value = "";
-        fileInput.value = "";
+        saveData(); renderPDFs();
     };
     reader.readAsDataURL(file);
 }
@@ -254,42 +555,19 @@ function renderPDFs(){
     const list = document.getElementById("pdfList");
     list.innerHTML = "";
     data.pdfs.forEach((pdf, index) => {
-        list.innerHTML += `
-            <div class="pdf-item">
-                <span>📄 <strong>${pdf.title}</strong></span>
-                <div>
-                    <a href="${pdf.fileData}" target="_blank" download="${pdf.title}.pdf">ডাউনলোড/দেখুন</a>
-                    <button style="margin-left:8px; color:red; border:none; background:none; cursor:pointer;" onclick="deletePDF(${index})">✕</button>
-                </div>
-            </div>
-        `;
+        list.innerHTML += `<div class="pdf-item"><span>📄 <strong>${pdf.title}</strong></span><a href="${pdf.fileData}" download="${pdf.title}.pdf">ডাউনলোড</a></div>`;
     });
 }
 
-function deletePDF(index){
-    data.pdfs.splice(index, 1);
-    saveData();
-    renderPDFs();
-}
-
-/* SAVE IMAGE */
 function saveImage(){
     const title = document.getElementById("imgTitle").value;
-    const fileInput = document.getElementById("imgFile");
-    const file = fileInput.files[0];
-
-    if(!file){
-        alert("দয়া করে একটি ছবি নির্বাচন করুন।");
-        return;
-    }
+    const file = document.getElementById("imgFile").files[0];
+    if(!file) return alert("ছবি নির্বাচন করুন");
 
     const reader = new FileReader();
     reader.onload = function(e){
         data.images.push({ title: title || "নোট", imgData: e.target.result });
-        saveData();
-        renderImages();
-        document.getElementById("imgTitle").value = "";
-        fileInput.value = "";
+        saveData(); renderImages();
     };
     reader.readAsDataURL(file);
 }
@@ -297,37 +575,26 @@ function saveImage(){
 function renderImages(){
     const gallery = document.getElementById("imageGallery");
     gallery.innerHTML = "";
-    data.images.forEach((img, index) => {
-        gallery.innerHTML += `
-            <div class="img-card">
-                <img src="${img.imgData}" alt="${img.title}">
-                <p style="font-size:11px; padding:4px; text-align:center;">${img.title}</p>
-                <button style="position:absolute; top:2px; right:2px; background:rgba(0,0,0,0.6); color:white; border:none; border-radius:50%; width:20px; height:20px; cursor:pointer;" onclick="deleteImage(${index})">✕</button>
-            </div>
-        `;
+    data.images.forEach((img) => {
+        gallery.innerHTML += `<div class="img-card"><img src="${img.imgData}"><p style="font-size:10px; text-align:center;">${img.title}</p></div>`;
     });
 }
 
-function deleteImage(index){
-    data.images.splice(index, 1);
-    saveData();
-    renderImages();
-}
-
-/* SAVE TEXT NOTE */
 function saveNoteText(){
-    data.textNote = document.getElementById("notes").value;
+    const day = getDayData(getTodayKey());
+    day.notes = document.getElementById("notes").value;
     saveData();
-    alert("✅ নোট সেভ করা হয়েছে!");
+    alert("✅ আজকের লিখিত নোট সফলভাবে সেভ করা হয়েছে!");
 }
 
-/* INIT LOAD */
+/* INIT */
 document.getElementById("todayText").innerText = new Date().toLocaleDateString("bn-BD", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
-document.getElementById("notes").value = data.textNote || "";
+loadToday();
+renderCalendar();
 renderPDFs();
 renderImages();
 </script>
 
 </body>
-    </html>
+        </html>
     
